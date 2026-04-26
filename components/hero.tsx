@@ -22,6 +22,15 @@ function PPHero({ ref }: { ref: React.RefObject<HTMLDivElement | null> }) {
     )
 }
 
+function LoadingHero() {
+    return (
+        <div className='relative w-screen h-screen items-center justify-center flex'>
+            {/* <Image src="/images/hero-bg.webp" alt="hero background" fill className='object-cover' /> */}
+            <span className="svg-spinners--bars-scale text-9xl"></span>
+        </div>
+    )
+}
+
 export default function Hero() {
     const captureRef = useRef<HTMLDivElement>(null);
     const [canvasImage, setCanvasImage] = useState<string | null>(null);
@@ -38,25 +47,32 @@ export default function Hero() {
         return () => clearTimeout(timer);
     }, [])
 
+
     if (canvasImage) {
-        console.log("Canvas image generated:");
         return (
-            <>
-                <LiquidGlass>
-                    <Image
-                        src={canvasImage}
-                        loading='eager'
-                        alt="hero"
-                        crossOrigin="anonymous"
-                        data-sampler="uBgTex"
-                        width={100}
-                        height={100}
-                        className="w-full h-full object-cover" />
-                </LiquidGlass>
-            </>
+            <LiquidGlass>
+                <Image
+                    src={canvasImage}
+                    loading='eager'
+                    alt="hero"
+                    crossOrigin="anonymous"
+                    data-sampler="uBgTex"
+                    width={100}
+                    height={100}
+                    className="w-full h-full object-cover pointer-events-none select-none"
+                    onContextMenu={(e) => e.preventDefault()}
+                />
+            </LiquidGlass>
         )
     }
 
-    return <PPHero ref={captureRef} />
+    return (
+        <>
+            <LoadingHero />
+            <div className='absolute inset-0 -z-1'>
+                <PPHero ref={captureRef} />
+            </div>
+        </>
+    );
 }
 

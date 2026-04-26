@@ -12,9 +12,7 @@ export default function LiquidGlass({ children }: { children: React.ReactNode })
         const state = {
             x: window.innerWidth / 2,
             y: window.innerHeight / 2,
-            gw: 300,
-            gh: 200,
-            gr: 60,
+            gr: 100,
             thick: 50,
             bezel: 60,
             ior: 3.0,
@@ -23,7 +21,6 @@ export default function LiquidGlass({ children }: { children: React.ReactNode })
             tint: 0.08,
             shadow: 0.5,
         };
-
 
         const curtains = new Curtains({
             container: "canvas",
@@ -95,11 +92,6 @@ export default function LiquidGlass({ children }: { children: React.ReactNode })
                     type: "2f",
                     value: [state.x, state.y],
                 },
-                uGlassSize: {
-                    name: "uGlassSize",
-                    type: "2f",
-                    value: [state.gw, state.gh],
-                },
             },
             transparent: true, // we need our texture to be transparent so that we can see the background
             depthTest: false
@@ -108,6 +100,7 @@ export default function LiquidGlass({ children }: { children: React.ReactNode })
         const plane = new Plane(curtains, planeElement, params);
         plane.onRender(() => {
             // use the onRender method of our plane fired at each requestAnimationFrame call
+            (plane.uniforms.uRadius.value as number)++
         });
 
         return () => {

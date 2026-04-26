@@ -140,6 +140,14 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  img {
+    @apply inline-block;
+  }
+
+  Image {
+    @apply inline-block;
+  }
 }
 
 @layer utilities {
@@ -150,73 +158,49 @@
   .slide-in-child {
     display: inline-block;
   }
-}
-
-/* Custom scrollbar for dark theme */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--background);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--muted-foreground);
-}
 
 
-@layer utilities {
-  .filter-svg {
-    filter: url(#blur);
+  .svg-spinners--bars-scale {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='2.8' height='12' x='1' y='6' fill='%23000'%3E%3Canimate id='SVGLQdHQe4p' attributeName='y' begin='0;SVGg3vsIeGm.end-0.1s' calcMode='spline' dur='0.6s' keySplines='.36,.61,.3,.98;.36,.61,.3,.98' values='6;1;6'/%3E%3Canimate attributeName='height' begin='0;SVGg3vsIeGm.end-0.1s' calcMode='spline' dur='0.6s' keySplines='.36,.61,.3,.98;.36,.61,.3,.98' values='12;22;12'/%3E%3C/rect%3E%3Crect width='2.8' height='12' x='5.8' y='6' fill='%23000'%3E%3Canimate attributeName='y' begin='SVGLQdHQe4p.begin+0.1s' calcMode='spline' dur='0.6s' keySplines='.36,.61,.3,.98;.36,.61,.3,.98' values='6;1;6'/%3E%3Canimate attributeName='height' begin='SVGLQdHQe4p.begin+0.1s' calcMode='spline' dur='0.6s' keySplines='.36,.61,.3,.98;.36,.61,.3,.98' values='12;22;12'/%3E%3C/rect%3E%3Crect width='2.8' height='12' x='10.6' y='6' fill='%23000'%3E%3Canimate attributeName='y' begin='SVGLQdHQe4p.begin+0.2s' calcMode='spline' dur='0.6s' keySplines='.36,.61,.3,.98;.36,.61,.3,.98' values='6;1;6'/%3E%3Canimate attributeName='height' begin='SVGLQdHQe4p.begin+0.2s' calcMode='spline' dur='0.6s' keySplines='.36,.61,.3,.98;.36,.61,.3,.98' values='12;22;12'/%3E%3C/rect%3E%3Crect width='2.8' height='12' x='15.4' y='6' fill='%23000'%3E%3Canimate attributeName='y' begin='SVGLQdHQe4p.begin+0.3s' calcMode='spline' dur='0.6s' keySplines='.36,.61,.3,.98;.36,.61,.3,.98' values='6;1;6'/%3E%3Canimate attributeName='height' begin='SVGLQdHQe4p.begin+0.3s' calcMode='spline' dur='0.6s' keySplines='.36,.61,.3,.98;.36,.61,.3,.98' values='12;22;12'/%3E%3C/rect%3E%3Crect width='2.8' height='12' x='20.2' y='6' fill='%23000'%3E%3Canimate id='SVGg3vsIeGm' attributeName='y' begin='SVGLQdHQe4p.begin+0.4s' calcMode='spline' dur='0.6s' keySplines='.36,.61,.3,.98;.36,.61,.3,.98' values='6;1;6'/%3E%3Canimate attributeName='height' begin='SVGLQdHQe4p.begin+0.4s' calcMode='spline' dur='0.6s' keySplines='.36,.61,.3,.98;.36,.61,.3,.98' values='12;22;12'/%3E%3C/rect%3E%3C/svg%3E");
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
   }
 
-  .water-wave {
-    @apply absolute rounded-full border border-white/10;
-
-    /* Hiệu ứng bẻ cong nội dung phía sau */
-    backdrop-filter: blur(4px) saturate(150%) contrast(110%);
-    -webkit-backdrop-filter: blur(4px) saturate(150%) contrast(110%);
-
-    /* Gốc animation */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 0;
-
+  .avt_wu {
+    width: 2.8px;
+    x: 5.8px;
+    fill: currentColor;
   }
 
-  .wave-1 {
-    animation: ripple-warp 5s infinite cubic-bezier(0, 0.5, 0.5, 1);
+  .hkr1jw {
+    width: 2.8px;
+    x: 15.4px;
+    fill: currentColor;
   }
 
-  .wave-2 {
-    animation: ripple-warp 5s infinite 2.5s cubic-bezier(0, 0.5, 0.5, 1);
+  .i6d7mf {
+    width: 2.8px;
+    x: 10.6px;
+    fill: currentColor;
   }
 
-  @keyframes ripple-warp {
-    0% {
-      transform: translate(-50%, -50%) scale(0);
-      opacity: 0;
-    }
+  .lkrd2u {
+    width: 2.8px;
+    x: 1px;
+    fill: currentColor;
+  }
 
-    10% {
-      opacity: 1;
-    }
-
-    80% {
-      opacity: 0.5;
-    }
-
-    100% {
-      /* Loang rộng ra toàn màn hình */
-      transform: translate(-50%, -50%) scale(100);
-      opacity: 0;
-    }
+  .sjp56j {
+    width: 2.8px;
+    x: 20.2px;
+    fill: currentColor;
   }
 }
