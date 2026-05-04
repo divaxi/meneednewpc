@@ -42,17 +42,17 @@ export default function Hero() {
         console.log("Canvas image generated:");
         return (
             <>
-                <LiquidGlass>
-                    <Image
-                        src={canvasImage}
-                        loading='eager'
-                        alt="hero"
-                        crossOrigin="anonymous"
-                        data-sampler="uBgTex"
-                        width={100}
-                        height={100}
-                        className="w-full h-full object-cover" />
-                </LiquidGlass>
+                {/* <LiquidGlass> */}
+                <Image
+                    src={canvasImage}
+                    loading='eager'
+                    alt="hero"
+                    crossOrigin="anonymous"
+                    data-sampler="uBgTex"
+                    width={100}
+                    height={100}
+                    className="w-full h-full object-cover" />
+                {/* </LiquidGlass> */}
             </>
         )
     }
